@@ -5,6 +5,9 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Microsoft.Azure.Mobile;
+using Microsoft.Azure.Mobile.Analytics;
+using Microsoft.Azure.Mobile.Crashes;
 
 namespace XamarinMSDemo
 {
@@ -25,6 +28,8 @@ namespace XamarinMSDemo
             Button button = FindViewById<Button>(Resource.Id.MyButton);
 
             button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
+            MobileCenter.Start("e6e37ba3-e6f0-436f-aa11-2bd49f495928",
+                    typeof(Analytics), typeof(Crashes));
         }
     }
 }
